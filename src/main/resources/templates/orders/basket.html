@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Basket</title>
+    </head>
+    <body>
+        History of Orders
+        <hr/>
+
+        <div th:each="order : ${orders}">
+            <a th:href="@{/orders/{id}(id=${order.getId()})}"
+               th:text="${order.getId()}"></a>
+        </div>
+
+        <hr/>
+        <a href="/orders/new">New Order</a>
+        <hr/>
+        <a href="/">Profile page</a>
+    </body>
+</html>

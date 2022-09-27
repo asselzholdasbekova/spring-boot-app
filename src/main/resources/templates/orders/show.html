@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Order</title>
+    </head>
+    <body>
+        Information about the Order
+        <hr/>
+
+        <p th:text="'Order ID: ' + ${order.getId()}">VALUE</p>
+        <p th:text="'Tracker ID: ' + ${order.getTrackerId()}">VALUE</p>
+        <p th:text="'Order Price: ' + ${order.getPrice()}">VALUE</p>
+        <p th:text="'Delivery Date: ' + ${order.getDate()}">VALUE</p>
+
+        <a th:href="@{/products/{id}(id=${order.getProductId()})}" th:text="'Product ID: ' + ${order.getProductId()}"></a>
+
+        <form th:method="DELETE" th:action="@{/orders/{id}(id=${order.getId()})}">
+            <input type="submit" value="Delete"/>
+        </form>
+
+        <hr/>
+        <a href="/orders/">All Orders</a>
+    </body>
+</html>

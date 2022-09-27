@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>New Order</title>
+    </head>
+    <body>
+        Create new Order
+        <hr/>
+
+        <form th:action="@{/orders}" th:method="POST" th:object="${order}">
+
+            <label for="productId">Choose Product:</label>
+            <select  name="productId" id="productId" th:field="*{productId}" >
+                <option th:each="option : ${options}" th:value="${option.getId()}" th:utext="${option.getName()}"></option>
+            </select>
+
+            <input type="submit" value="Create">
+        </form>
+
+        <hr/>
+        <a href="/orders/">Back</a>
+    </body>
+</html>
